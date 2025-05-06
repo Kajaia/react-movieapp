@@ -15,13 +15,13 @@ export default function HomePage() {
           placeholder="Search for a movie, tv show, person..."
         />
       </Header>
-      <MovieSection title="What's Popular" background="" link="popular" />
+      <MovieSection title="What's Popular" link="popular" />
       <MovieSection
         title="Upcoming Movies"
         background="bg-blue"
         link="upcoming"
       />
-      <MovieSection title="Top Rated Movies" background="" link="top_rated" />
+      <MovieSection title="Top Rated Movies" link="top_rated" />
     </>
   );
 }
