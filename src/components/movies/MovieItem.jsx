@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { color, vote } from "../../helpers";
 
 export default function MovieItem({ movie }) {
@@ -17,7 +18,7 @@ export default function MovieItem({ movie }) {
       <div className="card-body">
         <h3 className="card-movie-title">{movie.title}</h3>
         <p className="card-movie-date">{movie.release_date}</p>
-        <a href="/movie-details.html?id=" className="link"></a>
+        <Link to={`/movies/${movie.id}`} className="link" />
       </div>
     </div>
   );

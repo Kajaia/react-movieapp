@@ -20,7 +20,6 @@ export default function MovieSection({ title, background, link }) {
       }
 
       const { results } = await res.json();
-      console.log(results);
       setMovies(results);
     } catch (error) {
       console.log(error);
