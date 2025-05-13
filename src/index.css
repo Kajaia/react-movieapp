@@ -207,6 +207,35 @@ body {
     color: #6C757D;
 }
 
+.search-box {
+    position: absolute;
+    width: 82%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #fff;
+    z-index: 1;
+    margin-top: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.search-link {
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (max-width: 992px) {
     .flex {
         flex-direction: column;

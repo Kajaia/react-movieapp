@@ -1,5 +1,6 @@
 import Header from "../components/layouts/Header";
 import MovieSection from "../components/movies/MovieSection";
+import Search from "../components/others/Search";
 
 export default function HomePage() {
   return (
@@ -9,11 +10,7 @@ export default function HomePage() {
         <p className="paragraph">
           Millions of movies, TV shows and people to discover. Explore now.
         </p>
-        <input
-          className="search"
-          type="search"
-          placeholder="Search for a movie, tv show, person..."
-        />
+        <Search />
       </Header>
       <MovieSection title="What's Popular" link="popular" />
       <MovieSection
