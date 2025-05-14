@@ -12,13 +12,13 @@ export default function HomePage() {
         </p>
         <Search />
       </Header>
-      <MovieSection title="What's Popular" link="popular" />
+      <MovieSection title="What's Popular" link="/movie/popular" />
       <MovieSection
         title="Upcoming Movies"
         background="bg-blue"
-        link="upcoming"
+        link="/movie/upcoming"
       />
-      <MovieSection title="Top Rated Movies" link="top_rated" />
+      <MovieSection title="Top Rated Movies" link="/movie/top_rated" />
     </>
   );
 }

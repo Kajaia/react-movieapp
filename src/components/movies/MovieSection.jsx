@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import MovieItem from "./MovieItem";
 import { baseURL, options } from "../../services/api";
 
-export default function MovieSection({ title, background, link }) {
+export default function MovieSection({
+  title,
+  background,
+  link,
+  stopScroll,
+  url,
+}) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -13,10 +19,10 @@ export default function MovieSection({ title, background, link }) {
 
   const getMovies = async () => {
     try {
-      const res = await fetch(`${baseURL}/movie/${link}`, options);
+      const res = await fetch(`${baseURL}${link}`, options);
 
       if (!res.ok) {
-        throw new Error("Can not get movies.");
+        throw new Error("Can not get data.");
       }
 
       const { results } = await res.json();
@@ -30,9 +36,11 @@ export default function MovieSection({ title, background, link }) {
     <section className={`movie-section ${background}`}>
       <div className="container">
         <h2 className="section-title">{title}</h2>
-        <div className="scroll-wrapper">
+        <div className={`scroll-wrapper ${stopScroll ? "stop-scroll" : ""}`}>
           {movies && movies.length > 0
-            ? movies.map((movie) => <MovieItem key={movie.id} movie={movie} />)
+            ? movies.map((movie) => (
+                <MovieItem key={movie.id} movie={movie} url={url} />
+              ))
             : ""}
         </div>
       </div>

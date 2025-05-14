@@ -1,25 +1,27 @@
+import { NavLink } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="container">
-        <a className="app-title" href="/">
+        <NavLink className="app-title" to="/">
           MovieApp
-        </a>
+        </NavLink>
         <ul className="nav-links">
           <li className="nav-item">
-            <a className="nav-link" href="/movies">
+            <NavLink className="nav-link" to="/movies">
               Movies
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/tv">
+            <NavLink className="nav-link" to="/tv">
               TV Shows
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/people">
+            <NavLink className="nav-link" to="/person">
               People
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>
