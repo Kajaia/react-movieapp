@@ -227,6 +227,7 @@ a {
 
 .search-item {
     display: flex;
+    position: relative;
     align-items: center;
     gap: 5px;
     margin-bottom: 5px;
@@ -240,6 +241,25 @@ a {
 .stop-scroll {
     overflow-x: unset;
     flex-wrap: wrap;
+}
+
+.search-link a {
+    color: #024162;
+    font-weight: bold;
+}
+
+.search-link a::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
+}
+
+.search-link small {
+    color: #acabab;
 }
 
 @media screen and (max-width: 992px) {

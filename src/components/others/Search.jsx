@@ -55,7 +55,17 @@ export default function Search() {
                       loading="lazy"
                     />
                   ) : (
-                    ""
+                    <img
+                      className="card-movie-poster"
+                      width="50"
+                      height="70"
+                      src={
+                        "https://ui-avatars.com/api/?background=024162&color=fff&name=" +
+                        (item?.title || item?.name)
+                      }
+                      alt={item?.title || item?.name}
+                      loading="lazy"
+                    />
                   )}
                   <div className="search-link">
                     <Link
