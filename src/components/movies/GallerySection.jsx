@@ -30,7 +30,7 @@ export default function GallerySection({ id }) {
     <section className="movie-section">
       <div className="container">
         <h2 className="section-title">Gallery</h2>
-        <div className="scroll-wrapper">
+        <div id="gallery" className="scroll-wrapper">
           {images && images.length
             ? images.map((image, index) => (
                 <GalleryItem key={index} image={image} />

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function CastItem({ actor }) {
   return (
     <div className="card">
@@ -12,6 +14,7 @@ export default function CastItem({ actor }) {
       <div className="card-body">
         <h3 className="card-movie-title">{actor?.name}</h3>
         <p className="card-movie-date">{actor?.character}</p>
+        <Link to={`/person/${actor.id}`} className="link" />
       </div>
     </div>
   );

@@ -262,6 +262,10 @@ a {
     color: #acabab;
 }
 
+#gallery .card {
+    max-width: 100%;
+}
+
 @media screen and (max-width: 992px) {
     .flex {
         flex-direction: column;
