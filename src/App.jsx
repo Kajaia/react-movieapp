@@ -6,6 +6,10 @@ import MovieDetails from "./pages/MovieDetails";
 import TvPage from "./pages/TvPage";
 import MoviesPage from "./pages/MoviesPage";
 import PeoplePage from "./pages/PeoplePage";
+import DashboardPage from "./pages/DashboardPage";
+import PrivateRoutes from "./components/auth/PrivateRoutes";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -17,22 +21,11 @@ function App() {
         <Route path="/tv" element={<TvPage />} />
         <Route path="/person" element={<PeoplePage />} />
         <Route path="/movies/:id" element={<MovieDetails />} />
-        <Route
-          path="/tv/:id"
-          element={
-            <div className="container">
-              <h1>TV Show Details</h1>
-            </div>
-          }
-        />
-        <Route
-          path="/person/:id"
-          element={
-            <div className="container">
-              <h1>Person Details</h1>
-            </div>
-          }
-        />
+        <Route element={<PrivateRoutes />}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+        </Route>
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </>

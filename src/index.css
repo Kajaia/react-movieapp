@@ -266,6 +266,10 @@ a {
     max-width: 100%;
 }
 
+label {
+    display: block;
+}
+
 @media screen and (max-width: 992px) {
     .flex {
         flex-direction: column;

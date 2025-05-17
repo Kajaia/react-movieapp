@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 
 export default function Navbar() {
+  const { user } = useContext(UserContext);
+
   return (
     <nav className="navbar">
       <div className="container">
@@ -23,6 +27,26 @@ export default function Navbar() {
               People
             </NavLink>
           </li>
+          {user ? (
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/dashboard">
+                Dashboard
+              </NavLink>
+            </li>
+          ) : (
+            <>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/login">
+                  Login
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/register">
+                  Register
+                </NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>
