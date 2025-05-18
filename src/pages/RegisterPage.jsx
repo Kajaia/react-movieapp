@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
+import { alert } from "../helpers";
 
 export default function RegisterPage() {
   const { register } = useContext(UserContext);
@@ -13,6 +14,8 @@ export default function RegisterPage() {
     e.preventDefault();
 
     if (password === repeatPassword) register(email, password);
+    else
+      alert("Register error", "Passwords did not match", "error", "Try again");
   };
 
   return (

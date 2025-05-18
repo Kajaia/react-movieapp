@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 
 export default function Navbar() {
-  const { user } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
 
   return (
     <nav className="navbar">
@@ -28,11 +28,18 @@ export default function Navbar() {
             </NavLink>
           </li>
           {user ? (
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/dashboard">
-                Dashboard
-              </NavLink>
-            </li>
+            <>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/dashboard">
+                  Dashboard
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#!" onClick={() => logout()}>
+                  Logout
+                </a>
+              </li>
+            </>
           ) : (
             <>
               <li className="nav-item">

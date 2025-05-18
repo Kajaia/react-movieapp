@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../../services/firebase";
+import { alert } from "../../helpers";
 
 const HOME = "/dashboard";
 
@@ -9,17 +16,51 @@ export default function UserProvider({ children }) {
   const navigate = useNavigate();
 
   const register = async (email, password) => {
-    setUser({ email, password });
-    navigate(HOME);
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+
+      setUser(res.user);
+      alert(
+        "Register success",
+        "You registered successfully",
+        "success",
+        "Thanks"
+      );
+      navigate(HOME);
+    } catch (error) {
+      alert("Register error", error.message, "error", "Try again");
+      console.log(error);
+    }
   };
 
   const login = async (email, password) => {
-    setUser({ email, password });
-    navigate(HOME);
+    try {
+      const res = await signInWithEmailAndPassword(auth, email, password);
+
+      setUser(res.user);
+      alert("Login success", "You logged in successfully", "success", "Thanks");
+      navigate(HOME);
+    } catch (error) {
+      alert("Login error", error.message, "error", "Try again");
+      console.log(error);
+    }
   };
 
   const logout = async () => {
-    setUser(null);
+    try {
+      await signOut(auth);
+
+      setUser(null);
+      alert(
+        "Logout success",
+        "You logged out successfully",
+        "success",
+        "Thanks"
+      );
+    } catch (error) {
+      alert("Logout error", error.message, "error", "Try again");
+      console.log(error);
+    }
   };
 
   return (

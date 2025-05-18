@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 export const vote = (rating) => (rating * 10).toFixed(2);
 
 export const color = (rating) => {
@@ -14,3 +16,11 @@ export const color = (rating) => {
 
   return color;
 };
+
+export const alert = (title, text, icon, confirmButtonText) =>
+  Swal.fire({
+    title,
+    text,
+    icon,
+    confirmButtonText,
+  });
