@@ -2,14 +2,19 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+// Import firebase credentials from .env
+const apiKey = import.meta.env.VITE_FIREBASE_API_KEY;
+const projectId = import.meta.env.VITE_FIREBASE_PROJECT_ID;
+const messagingSenderId = import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID;
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB-A5HUToLB1wr-71Bi-uAxv2V01sZayrQ",
-  authDomain: "movieapp-8c062.firebaseapp.com",
-  projectId: "movieapp-8c062",
-  storageBucket: "movieapp-8c062.firebasestorage.app",
-  messagingSenderId: "373532858913",
-  appId: "1:373532858913:web:51dce9c34a943b8876a160",
+  apiKey,
+  authDomain: `${projectId}.firebaseapp.com`,
+  projectId,
+  storageBucket: `${projectId}.firebasestorage.app`,
+  messagingSenderId,
+  appId: `1:${messagingSenderId}:web:51dce9c34a943b8876a160`,
 };
 
 // Initialize Firebase
