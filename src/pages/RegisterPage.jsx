@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import { alert } from "../helpers";
+import Header from "../components/layouts/Header";
 
 export default function RegisterPage() {
   const { register } = useContext(UserContext);
@@ -19,8 +20,8 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={(e) => handleForm(e)}>
+    <Header>
+      <form className="auth" onSubmit={(e) => handleForm(e)}>
         <div>
           <label htmlFor="email">Email</label>
           <input
@@ -28,6 +29,8 @@ export default function RegisterPage() {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            autoFocus={true}
+            placeholder="Ex: johndoe@example.com"
             required
           />
         </div>
@@ -38,6 +41,7 @@ export default function RegisterPage() {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="Ex: 123456"
             required
           />
         </div>
@@ -48,6 +52,7 @@ export default function RegisterPage() {
             id="repeat_password"
             value={repeatPassword}
             onChange={(e) => setRepeatPassword(e.target.value)}
+            placeholder="Ex: 123456"
             required
           />
         </div>
@@ -60,6 +65,6 @@ export default function RegisterPage() {
           </p>
         </div>
       </form>
-    </div>
+    </Header>
   );
 }

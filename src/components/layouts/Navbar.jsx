@@ -19,7 +19,7 @@ export default function Navbar() {
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/tv">
-              TV Shows
+              TV
             </NavLink>
           </li>
           <li className="nav-item">

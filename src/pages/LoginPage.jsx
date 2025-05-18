@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
+import Header from "../components/layouts/Header";
 
 export default function LoginPage() {
   const { login } = useContext(UserContext);
@@ -15,8 +16,8 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={(e) => handleForm(e)}>
+    <Header>
+      <form className="auth" onSubmit={(e) => handleForm(e)}>
         <div>
           <label htmlFor="email">Email</label>
           <input
@@ -24,6 +25,8 @@ export default function LoginPage() {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            autoFocus={true}
+            placeholder="Ex: johndoe@example.com"
             required
           />
         </div>
@@ -34,6 +37,7 @@ export default function LoginPage() {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="Ex: 123456"
             required
           />
         </div>
@@ -46,6 +50,6 @@ export default function LoginPage() {
           </p>
         </div>
       </form>
-    </div>
+    </Header>
   );
 }

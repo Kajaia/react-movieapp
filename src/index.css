@@ -2,11 +2,11 @@
 
 * {
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
     margin: 0 auto;
-    font-family: "Roboto", sans-serif;
 }
 
 #root {
@@ -270,6 +270,49 @@ label {
     display: block;
 }
 
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70dvh;
+}
+
+.auth label {
+    color: #fff;
+    margin: 5px 0;
+}
+
+.auth input {
+    border-radius: 50px;
+    border: none;
+    padding: 8px 12px;
+}
+
+.auth button {
+    border-radius: 50px;
+    border: none;
+    padding: 8px 20px;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.auth button:hover {
+    background-color: #042541;
+    color: #fff;
+    cursor: pointer;
+}
+
+.auth p {
+    color: #fff;
+    font-size: 14px;
+}
+
+.auth a {
+    color: #FEC008;
+    text-decoration: underline;
+}
+
 @media screen and (max-width: 992px) {
     .flex {
         flex-direction: column;
@@ -278,5 +321,10 @@ label {
     #details .card-movie-poster {
         width: 100%;
         height: 100%;
+    }
+
+    .nav-links {
+        max-width: 300px;
+        overflow-x: auto;
     }
 }
