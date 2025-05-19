@@ -11,6 +11,7 @@ import PrivateRoutes from "./components/auth/PrivateRoutes";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import TvDetails from "./pages/TvDetails";
+import ActorDetails from "./pages/ActorDetails";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/person" element={<PeoplePage />} />
         <Route path="/movies/:id" element={<MovieDetails />} />
         <Route path="/tv/:id" element={<TvDetails />} />
+        <Route path="/person/:id" element={<ActorDetails />} />
         <Route element={<PrivateRoutes />}>
           <Route path="/dashboard" element={<DashboardPage />} />
         </Route>
