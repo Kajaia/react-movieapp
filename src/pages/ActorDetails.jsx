@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import Header from "../components/layouts/Header";
 import { useEffect, useState } from "react";
 import { baseURL, options } from "../services/api";
+import { age } from "../helpers";
 
 export default function ActorDetails() {
   const { id } = useParams();
@@ -43,7 +44,9 @@ export default function ActorDetails() {
         </div>
         <div>
           <h1>{actor?.name}</h1>
-          <p>{actor?.birthday}</p>
+          <p>
+            {actor?.birthday} • {age(actor?.birthday)} years
+          </p>
           <i>{actor?.place_of_birth}</i>
           <h2>Bio</h2>
           <p>{actor?.biography}</p>

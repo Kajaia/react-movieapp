@@ -24,3 +24,6 @@ export const alert = (title, text, icon, confirmButtonText) =>
     icon,
     confirmButtonText,
   });
+
+export const age = (birthday) =>
+  new Date().getFullYear() - new Date(birthday).getFullYear();
