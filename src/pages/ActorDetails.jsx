@@ -1,33 +1,11 @@
 import { useParams } from "react-router";
 import Header from "../components/layouts/Header";
-import { useEffect, useState } from "react";
-import { baseURL, options } from "../services/api";
 import { age } from "../helpers";
+import useFetch from "../hooks/useFetch";
 
 export default function ActorDetails() {
   const { id } = useParams();
-  const [actor, setActor] = useState(null);
-
-  useEffect(() => {
-    getActor();
-
-    return () => setActor(null);
-  }, []);
-
-  const getActor = async () => {
-    try {
-      const res = await fetch(`${baseURL}/person/${id}`, options);
-
-      if (!res.ok) {
-        throw new Error("Can not get actor.");
-      }
-
-      const results = await res.json();
-      setActor(results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { data } = useFetch(`/person/${id}`);
 
   return (
     <>
@@ -37,19 +15,19 @@ export default function ActorDetails() {
             className="card-movie-poster"
             width="280"
             height="400"
-            src={"https://image.tmdb.org/t/p/w500" + actor?.profile_path}
-            alt={actor?.name}
+            src={"https://image.tmdb.org/t/p/w500" + data?.profile_path}
+            alt={data?.name}
             loading="lazy"
           />
         </div>
         <div>
-          <h1>{actor?.name}</h1>
+          <h1>{data?.name}</h1>
           <p>
-            {actor?.birthday} • {age(actor?.birthday)} years
+            {data?.birthday} • {age(data?.birthday)} years
           </p>
-          <i>{actor?.place_of_birth}</i>
+          <i>{data?.place_of_birth}</i>
           <h2>Bio</h2>
-          <p>{actor?.biography}</p>
+          <p>{data?.biography}</p>
         </div>
       </Header>
     </>
