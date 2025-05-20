@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router";
 import {
@@ -15,11 +15,17 @@ export default function UserProvider({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const storage = JSON.parse(localStorage.getItem("user"));
+    if (storage) setUser(storage);
+  }, []);
+
   const register = async (email, password) => {
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
       setUser(res.user);
+      localStorage.setItem("user", JSON.stringify(res.user));
       alert(
         "Register success",
         "You registered successfully",
@@ -38,6 +44,7 @@ export default function UserProvider({ children }) {
       const res = await signInWithEmailAndPassword(auth, email, password);
 
       setUser(res.user);
+      localStorage.setItem("user", JSON.stringify(res.user));
       alert("Login success", "You logged in successfully", "success", "Thanks");
       navigate(HOME);
     } catch (error) {
@@ -51,6 +58,7 @@ export default function UserProvider({ children }) {
       await signOut(auth);
 
       setUser(null);
+      localStorage.removeItem("user");
       alert(
         "Logout success",
         "You logged out successfully",

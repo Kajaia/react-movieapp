@@ -12,6 +12,7 @@ import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import TvDetails from "./pages/TvDetails";
 import ActorDetails from "./pages/ActorDetails";
+import GuestRoutes from "./components/auth/GuestRoutes";
 
 function App() {
   return (
@@ -28,8 +29,10 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route path="/dashboard" element={<DashboardPage />} />
         </Route>
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route element={<GuestRoutes />}>
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Route>
       </Routes>
       <Footer />
     </>
