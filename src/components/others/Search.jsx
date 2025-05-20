@@ -7,26 +7,25 @@ export default function Search() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    if (search.length >= 3) getData();
-    else setData([]);
-  }, [search]);
+    const getData = async () => {
+      const params = new URLSearchParams({ query: search });
 
-  const getData = async () => {
-    const params = new URLSearchParams({ query: search });
+      try {
+        const res = await fetch(`${baseURL}/search/multi?${params}`, options);
 
-    try {
-      const res = await fetch(`${baseURL}/search/multi?${params}`, options);
+        if (!res.ok) {
+          throw new Error("Can not get search data.");
+        }
 
-      if (!res.ok) {
-        throw new Error("Can not get search data.");
+        const { results } = await res.json();
+        setData(results);
+      } catch (error) {
+        console.log(error);
       }
+    };
 
-      const { results } = await res.json();
-      setData(results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    if (search.length >= 3) getData();
+  }, [search]);
 
   return (
     <>
