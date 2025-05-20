@@ -6,7 +6,6 @@ export default function useFetch(link) {
 
   useEffect(() => {
     const getData = async () => {
-      console.log("getData");
       try {
         const res = await fetch(`${baseURL}${link}`, options);
 

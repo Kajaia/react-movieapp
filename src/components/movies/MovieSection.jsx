@@ -8,7 +8,7 @@ export default function MovieSection({
   stopScroll,
   url,
 }) {
-  const { data } = useFetch(`/movie/${link}`);
+  const { data } = useFetch(link);
 
   return (
     <section className={`movie-section ${background}`}>
