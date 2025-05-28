@@ -337,4 +337,10 @@ label {
         height: 500px;
         object-fit: cover;
     }
+
+    #gallery .card-movie-poster {
+        max-width: 350px;
+        height: 100%;
+        object-fit: cover;
+    }
 }
